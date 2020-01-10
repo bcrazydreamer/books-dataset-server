@@ -4,6 +4,7 @@
   "description": "books database",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js > /var/log/swaex/book-dataset-server.log 2>&1 &",
     "test": "echo \"Ohh yehh!\""
   },
   "keywords": [
