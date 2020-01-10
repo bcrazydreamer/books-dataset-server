@@ -37,11 +37,4 @@ schema.index({ original_title: 1 });
 
 modelSchema = mongoose.model("book", schema);
 
-modelSchema.ensureIndexes(function(err) {
-    if (err)
-        console.log(err);
-    else
-        console.log('create profile index successfully');
-});
-
 module.exports = modelSchema;
