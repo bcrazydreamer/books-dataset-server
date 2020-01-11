@@ -78,6 +78,35 @@ app.post('/', async function(req, res, next) {
   return res.status(200).json(ob);
 });
 
+app.post('/bookdataset', async function(req, res, next) {
+  var data = req.body;
+  var ob = {};
+  var s = {};
+  var limit = 500;
+  var skip = 0;
+  var prj = {};
+  try{
+    if(bv.isString(data.book) && data.book.trim().length > 0){
+      s.$or = [{title : new RegExp(data.book.trim(),"ig")},{original_title : new RegExp(data.book.trim(),"ig")}]
+    }
+    if(bv.isString(data.author) && data.author.trim().length > 0){
+      s.authors = new RegExp(data.author.trim(),"ig");
+    }
+    if(!isNaN(data.limit) && Number(data.limit) < 500){limit = Number(data.limit)}
+    if(!isNaN(data.skip)){skip = Number(data.skip)}
+    if(bv.isObject(data.prj)){prj = data.prj}
+  }catch(err){}
+  try{
+    ob.success = true;
+    ob.data = await Books.find(s,prj,{skip : skip,limit : limit,sort : {average_rating : -1}});
+  }catch(error){
+    ob.success = false;
+    ob.data = {};
+    return res.status(500).json(ob);
+  }
+  return res.status(200).json(ob);
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
