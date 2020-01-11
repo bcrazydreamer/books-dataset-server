@@ -11,7 +11,7 @@ const Books          = require('./books.model');
 
 const port = 9000;
 
-require('./db.util');
+require('./utils/db.util');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

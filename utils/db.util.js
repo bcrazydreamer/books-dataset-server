@@ -1,5 +1,6 @@
-const mongoose  =   require('mongoose');
-const mongo_url = "mongodb://testinguser:12345test@ds361768.mlab.com:61768/books";
+const mongoose  =   require("mongoose");
+const config    = require("./config");
+const mongo_url = "mongodb://"+config.user+":"+config.pwd+"@ds361768.mlab.com:61768/books";
 
 connectDb();
 function connectDb(){
