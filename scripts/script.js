@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const request = require("request");
 const Book = require("../books.model");
-const mongo_url = "mongodb://testinguser:12345test@ds361768.mlab.com:61768/books";
+const config    = require("../utils/config");
+const mongo_url = "mongodb://"+config.user+":"+config.pwd+"@ds361768.mlab.com:61768/books";
 
 connectDb();
 function connectDb(){
@@ -80,7 +81,6 @@ async function startProcess(){
             isbn = "0"+isbn;
         }
         return requestISBN13(isbn,async (err,result)=>{
-            console.log(err,result);
             if(!isNaN(result)){
                 result = Number(result);
                 try{
