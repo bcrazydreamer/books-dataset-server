@@ -74,7 +74,7 @@ async function startProcess(){
     loop(0);
     function loop(idx){
         console.log("Left--->",books.length - idx);
-        if(idx === 2){ return process.exit(0)}
+        if(idx === books.length){ return process.exit(0)}
         if(isNaN(books[idx].isbn)){return loop(idx + 1)}
         isbn = String(books[idx].isbn);
         if(isbn[0] !== 0){
