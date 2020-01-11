@@ -77,8 +77,8 @@ async function startProcess(){
         if(idx === books.length){ return process.exit(0)}
         if(isNaN(books[idx].isbn)){return loop(idx + 1)}
         isbn = String(books[idx].isbn);
-        if(isbn[0] !== 0){
-            isbn = "0"+isbn;
+        if(isbn.length < 10){
+            isbn = isbn.toString().padStart(10, "0")
         }
         return requestISBN13(isbn,async (err,result)=>{
             if(!isNaN(result)){

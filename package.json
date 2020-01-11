@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js > /var/log/swaex/book-dataset-server.log 2>&1 &",
-    "test": "echo \"Ohh yehh!\""
+    "test": "echo \"Ohh yehh!\"",
+    "script" : "node ./scripts/script.js > /var/log/swaex/book-dataset-scripts.log 2>&1 &"
   },
   "keywords": [
     "Books"
