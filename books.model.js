@@ -23,8 +23,8 @@ var schema = mongoose.Schema({
     ratings_4 : Number,
     ratings_5 : Number,
     image_url : String,
-    small_image_url : String
-    
+    small_image_url : String,
+    vrf : Boolean
 }, {
     timestamps: true
 }
