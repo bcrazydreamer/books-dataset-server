@@ -45,9 +45,9 @@ app.options("*",function(req,res,next){
   res.status(200).end();
 });
 
-app.get('/', async function(req, res, next) {
-  return res.status(200).json({status : true});
-})
+// app.get('/', async function(req, res, next) {
+//   return res.status(200).json({status : true});
+// })
 
 app.post('/', async function(req, res, next) {
   var data = req.body;
