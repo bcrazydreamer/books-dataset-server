@@ -1,5 +1,5 @@
 {
-  "name": "book",
+  "name": "books-dataset-server",
   "version": "1.0.0",
   "description": "books database",
   "main": "app.js",
